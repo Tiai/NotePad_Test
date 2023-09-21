@@ -19,3 +19,13 @@ C:\Users\user\Documents\Visual Studio 2015\Projects\P76051195_hw1_1\WindowsForms
 C:\Users\user\Documents\Visual Studio 2015\Projects\P76051195_hw1_1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Form1.resources
 C:\Users\user\Documents\Visual Studio 2015\Projects\P76051195_hw1_1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
 C:\Users\user\Documents\Visual Studio 2015\Projects\P76051195_hw1_1\WindowsFormsApplication1\obj\Debug\hw1.csproj.GenerateResource.Cache
+D:\Others\Learning\Course\c#\hw\hw1\P76051195_hw1_1\NotePad_Test\hw1\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
+D:\Others\Learning\Course\c#\hw\hw1\P76051195_hw1_1\NotePad_Test\hw1\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+D:\Others\Learning\Course\c#\hw\hw1\P76051195_hw1_1\NotePad_Test\hw1\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+D:\Others\Learning\Course\c#\hw\hw1\P76051195_hw1_1\NotePad_Test\hw1\WindowsFormsApplication1\obj\Debug\hw1.csproj.AssemblyReference.cache
+D:\Others\Learning\Course\c#\hw\hw1\P76051195_hw1_1\NotePad_Test\hw1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Form1.resources
+D:\Others\Learning\Course\c#\hw\hw1\P76051195_hw1_1\NotePad_Test\hw1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
+D:\Others\Learning\Course\c#\hw\hw1\P76051195_hw1_1\NotePad_Test\hw1\WindowsFormsApplication1\obj\Debug\hw1.csproj.GenerateResource.cache
+D:\Others\Learning\Course\c#\hw\hw1\P76051195_hw1_1\NotePad_Test\hw1\WindowsFormsApplication1\obj\Debug\hw1.csproj.CoreCompileInputs.cache
+D:\Others\Learning\Course\c#\hw\hw1\P76051195_hw1_1\NotePad_Test\hw1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
+D:\Others\Learning\Course\c#\hw\hw1\P76051195_hw1_1\NotePad_Test\hw1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
