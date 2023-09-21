@@ -18,7 +18,7 @@ namespace WindowsFormsApplication1
             InitializeComponent();
         }
 
-        bool s = true;
+        bool Status = true;
 
         /* 開啟記事本時執行 */
         private void Openf(object sender, EventArgs e)
@@ -27,14 +27,19 @@ namespace WindowsFormsApplication1
             richTextBox1.ContextMenuStrip = contextMenuStrip1; //新建ContextMenuStrip
         }
 
-        /* 若有記事本內容有更改即把儲存狀態設為未儲存 */
-        private void unsave(object sender, EventArgs e)
+        private RichTextBox GetRichTextBox1()
         {
-            s = false;
+            return richTextBox1;
+        }
+
+        /* 若有記事本內容有更改即把儲存狀態設為未儲存 */
+        private void UnSave(object sender, EventArgs e)
+        {
+            Status = false;
         }
 
         /* timer每變更一次即執行一次，表動態顯示現在時間，顯示在狀態列 */
-        private void timer1_Tick(object sender, EventArgs e)
+        private void Timer_Tick(object sender, EventArgs e)
         {
             toolStripStatusLabel1.Text = "目前時間 : " + DateTime.Now.ToString();
         }
@@ -70,10 +75,10 @@ namespace WindowsFormsApplication1
         /* 未儲存狀態時，呼叫開啟新檔事件儲存並清空，在讀取所要文件 */
         private void 開啟OToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (s == false)
+            if (Status == false)
             {
                 新增NToolStripMenuItem_Click(sender, e);
-                s = true;
+                Status = true;
             }
 
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
@@ -81,6 +86,7 @@ namespace WindowsFormsApplication1
                 richTextBox1.Clear();
                 richTextBox1.Text = File.ReadAllText(openFileDialog1.FileName, Encoding.Default);
                 Text = Path.GetFileName(openFileDialog1.FileName);
+                Status = true;
             }
         }
 
@@ -99,6 +105,8 @@ namespace WindowsFormsApplication1
             {
                 File.WriteAllText(openFileDialog1.FileName, richTextBox1.Text, Encoding.Default);
             }
+
+            Status = true;
         }
 
         /* 跳出儲存視窗詢問是否儲存 */
@@ -108,6 +116,7 @@ namespace WindowsFormsApplication1
             {
                 File.WriteAllText(saveFileDialog1.FileName, richTextBox1.Text, Encoding.Default);
                 Text = Path.GetFileName(saveFileDialog1.FileName);
+                Status = true;
             }
         }
 
@@ -140,7 +149,7 @@ namespace WindowsFormsApplication1
         /* 若目前為未儲存狀態則若要儲存則儲存完再關閉 */
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (s == false)
+            if (Status == false)
             {
                 DialogResult dr = MessageBox.Show("是否儲存此文字文件?", "關閉儲存提醒", MessageBoxButtons.YesNoCancel);
                 if (dr == DialogResult.Yes)
@@ -176,31 +185,31 @@ namespace WindowsFormsApplication1
         private void 復原UToolStripMenuItem_Click(object sender, EventArgs e)
         {
             richTextBox1.Undo();
-            s = false;
+            Status = false;
         }
 
         private void 取消復原RToolStripMenuItem_Click(object sender, EventArgs e)
         {
             richTextBox1.Redo();
-            s = false;
+            Status = false;
         }
 
         private void 剪下TToolStripMenuItem_Click(object sender, EventArgs e)
         {
             richTextBox1.Cut();
-            s = false;
+            Status = false;
         }
 
         private void 複製CToolStripMenuItem_Click(object sender, EventArgs e)
         {
             richTextBox1.Copy();
-            s = false;
+            Status = false;
         }
 
         private void 貼上PToolStripMenuItem_Click(object sender, EventArgs e)
         {
             richTextBox1.Paste();
-            s = false;
+            Status = false;
         }
 
         /* 刪除所選取的字串從起始到整個字串長 */
@@ -210,7 +219,7 @@ namespace WindowsFormsApplication1
             {
                 richTextBox1.Text = richTextBox1.Text.Remove(richTextBox1.SelectionStart, richTextBox1.SelectionLength);
             }
-            s = false;
+            Status = false;
         }
 
         /* 每次要使用編輯時確認目前編輯裡的事件是否可以執行 */
@@ -434,7 +443,7 @@ namespace WindowsFormsApplication1
             richTextBox1.SelectionStart = richTextBox1.Text.Length;//移動指標
             richTextBox1.Focus();
             richTextBox1.ScrollToCaret();
-            s = false;
+            Status = false;
         }
 
         /* 若有選取則修改選取部分，否則修改整份文件 */
@@ -442,28 +451,28 @@ namespace WindowsFormsApplication1
         {
             fontDialog1.ShowDialog();
             richTextBox1.Font = fontDialog1.Font;
-            s = false;
+            Status = false;
         }
 
         private void 部份文件SToolStripMenuItem_Click(object sender, EventArgs e)
         {
             fontDialog1.ShowDialog();
             richTextBox1.SelectionFont = fontDialog1.Font;
-            s = false;
+            Status = false;
         }
 
         private void 整份文件AToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             colorDialog1.ShowDialog();
             richTextBox1.ForeColor = colorDialog1.Color;
-            s = false;
+            Status = false;
         }
 
         private void 部份文件SToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             colorDialog1.ShowDialog();
             richTextBox1.SelectionColor = colorDialog1.Color;
-            s = false;
+            Status = false;
         }
 
         private void 自動換行WToolStripMenuItem_Click(object sender, EventArgs e)
@@ -479,6 +488,16 @@ namespace WindowsFormsApplication1
                 richTextBox1.WordWrap = true;
                 ShowrRowCol(sender, e);
             }
+        }
+
+        private void 編輯EToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void 檢視ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
 
         /* 每次點選，文件內容改變便執行事件 */
